@@ -6,6 +6,6 @@
 	<title>test</title>
 </head>
 <body>
-test babadfdsfdsf
+test
 </body>
 </html>
