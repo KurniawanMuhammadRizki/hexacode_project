@@ -7,6 +7,10 @@
 </head>
 <body>
 test
+<<<<<<< HEAD
 okoko
+=======
+bulk
+>>>>>>> f643c81d90c2f84af7233bec32793e604b09653d
 </body>
 </html>
