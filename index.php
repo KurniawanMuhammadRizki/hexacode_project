@@ -6,13 +6,6 @@
 	<title>test</title>
 </head>
 <body>
-test <p>bestie</p>
-<<<<<<< HEAD
-okoko
-=======
-bulk
-pusss
-
-this was changed hehe
+gas
 </body>
 </html>
