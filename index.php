@@ -9,6 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Elate &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
@@ -746,3 +747,11 @@
 	</body>
 </html>
 
+=======
+	<title>test</title>
+</head>
+<body>
+nyoba ngerrjain dulu
+</body>
+</html>
+>>>>>>> 5c98f83197a3319d5a35f9c85f38a26b933cbec4
