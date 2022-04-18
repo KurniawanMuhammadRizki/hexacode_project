@@ -74,6 +74,7 @@ body {
     margin-bottom: 15px
 }
 
+.login-space .group .select,
 .login-space .group .label,
 .login-space .group .input,
 .login-space .group .button {
@@ -82,6 +83,7 @@ body {
     display: block
 }
 
+.login-space .group .select,
 .login-space .group .input,
 .login-space .group .button {
     border: none;
