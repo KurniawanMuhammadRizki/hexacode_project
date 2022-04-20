@@ -1,45 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Data Instruktur</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Instruktur</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 
-<?php
-if (isset($_POST['kirim'])) {
-
-    include('koneksi.php');
-
-    $nama_inst  = $_POST['nama_inst'];
-    $ktp_inst = $_POST['ktp_inst'];
-    $npwp_inst  = $_POST['npwp_inst'];
-    $file_inst = $_POST['file_inst'];
-    $alamat_inst = $_POST['alamat_inst'];
-
-    $input = mysqli_query($koneksi, "INSERT INTO user VALUES(NULL, '$nama_inst','$ktp_inst', '$npwp_inst', '$file_inst')") or die(mysqli_error($koneksi));
-    $message = "Terimakasih telah mendaftar :)";
-    echo "<script type='text/javascript'>alert('$message');</script>";
-}
-?>
-
-
-
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Data Instruktur</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Form</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="" method="post">
-          <div class="mb-3">
+  <form action="" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
             <label class="col-form-label">Nama Lengkap:</label>
             <input type="text" name="nama_inst" class="form-control">
           </div>
@@ -59,7 +39,6 @@ if (isset($_POST['kirim'])) {
             <label class="col-form-label">Alamat:</label>
             <textarea name="alamat_inst" class="form-control"></textarea>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -68,8 +47,23 @@ if (isset($_POST['kirim'])) {
     </div>
   </div>
 </div>
+</form>
+<?php
+if (isset($_POST['kirim'])) {
 
+    include('../koneksi.php');
 
+    $nama_inst  = $_POST['nama_inst'];
+    $ktp_inst = $_POST['ktp_inst'];
+    $npwp_inst  = $_POST['npwp_inst'];
+    $file_inst = $_POST['file_inst'];
+    $alamat_inst = $_POST['alamat_inst'];
+
+    $input = mysqli_query($koneksi, "INSERT INTO data_instruktur VALUES(NULL, '$nama_inst','$ktp_inst', '$npwp_inst', '$file_inst', '$alamat_inst')") or die(mysqli_error($koneksi));
+    $message = "Data telah ditambahkan.";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+}
+?>
 
 
 
@@ -103,7 +97,7 @@ if (isset($_POST['kirim'])) {
             echo '<td>' . $data['npwp_inst'] . '</td>';
             echo '<td>' . $data['file_inst'] . '</td>';
             echo '<td>' . $data['alamat_inst'] . '</td>';
-            echo '<td><a class="btn btn-warning btn-xs" href="edit.php?id=' . $data['id_inst'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="edit.php?id=' . $data['id_inst'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
+            echo '<td><a class="btn btn-warning btn-xs" href="edit/data_inst.php?id_inst=' . $data['id_inst'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="edit/hapus_data_inst.php?id_inst=' . $data['id_inst'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
             echo '</tr>';
             $no++;
           }

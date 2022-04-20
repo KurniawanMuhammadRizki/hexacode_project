@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <form action="login_proses.php" method="post" style="margin: 0 auto; width: 80%;">
+    <form action="login_proses.php" method="post" style="margin-left: 500px; margin-right: 500px;">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Username</label>
     <input type="text" name="username" class="form-control" required="required">
