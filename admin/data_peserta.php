@@ -120,14 +120,51 @@
           <th>No</th>
           <th>Nama</th>
           <th>No. KTP</th>
-          <th>No. NPWP</th>
-          <th>File</th>
+          <th>Email</th>
+          <th>Nomor Handphone</th>
+          <th>Tempat Lahir</th>
+          <th>Tanggal Lahir</th>
+          <th>Jenis Kelamin</th>
+          <th>Agama</th>
+          <th>Pendidikan</th>
           <th>Alamat</th>
+          <th>Provinsi</th>
+          <th>Kota</th>
+          <th>Kecamatan</th>
+          <th>Desa</th>
+          <th>Status</th>
           <th>Opsi</th>
         </tr>
       </thead>
+
       <tbody>
-          
+        <?php
+        include('../config/koneksi.php');
+        $query = mysqli_query($koneksi, "SELECT * FROM peserta ORDER BY nama DESC") or die(mysqli_error($koneksi)); if (mysqli_num_rows($query) == 0) {echo '<tr><td colspan="6">Tidak ada data!</td></tr>';} 
+        else {
+          $no = 1;
+          while ($data = mysqli_fetch_assoc($query)) {
+            echo '<tr>';
+            echo '<td>' . $no . '</td>';
+            echo '<td>' . $data['nama'] . '</td>';
+            echo '<td>' . $data['email'] . '</td>';
+            echo '<td>' . $data['telp'] . '</td>';
+            echo '<td>' . $data['tempat'] . '</td>';
+            echo '<td>' . $data['tanggal'] . '</td>';
+            echo '<td>' . $data['jk'] . '</td>';
+            echo '<td>' . $data['agama'] . '</td>';
+            echo '<td>' . $data['pendidikan'] . '</td>';
+            echo '<td>' . $data['alamat'] . '</td>';
+            echo '<td>' . $data['provinsi'] . '</td>';
+            echo '<td>' . $data['kota'] . '</td>';
+            echo '<td>' . $data['kecamatan'] . '</td>';
+            echo '<td>' . $data['desa'] . '</td>';
+            echo '<td>' . $data['status'] . '</td>';
+            echo '<td><a class="btn btn-warning btn-xs" href="edit.php?id=' . $data['id_peserta'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="controller/hapus.php?id=' . $data['id'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
+            echo '</tr>';
+            $no++;
+          }
+        }   ?>
         </tbody>
       </table>
     </div>
