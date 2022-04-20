@@ -30,10 +30,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <link href="../admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../admin/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
+  <link href="../admin/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -52,26 +52,20 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li >
-            <a href="./dataInstruktur.html">
+          <li class="active ">
+            <a href="../admin/dataInstruktur.php">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
           </li>
-          <li class="active ">
-            <a href="./dataDiklat.html">
+          <li>
+            <a href="../admin/dataDiklat.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Diklat</p>
             </a>
           </li>
           <li>
-            <a href="./dataPeserta.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Data Peserta</p>
-            </a>
-          </li>
-          <li>
-            <a href="./dataKegiatanDIklat.html">
+            <a href="../admin/dataKegiatan.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
@@ -155,99 +149,76 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category"></h5>
-                <h4 class="card-title text-center "> Data Diklat</h4>
+                <h4 class="card-title text-center "> Data Instruktur dan Asisten</h4>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-hover">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                <?php
+                include('../config/config.php');
+                  $id_instruktur = $_GET['id_instruktur']; 
+                 
+                  $show = mysqli_query($koneksi, "SELECT * FROM instruktur WHERE id_instruktur='$id_instruktur'"); 
+                 
+                  if(mysqli_num_rows($show) == 0){ 
+                 
+                    echo '<script>window.history.back()</script>'; 
+                 
+                 }else{ 
+                 
+                  $data = mysqli_fetch_assoc($show); 
+                 }  
+                 ?>  
+                <form action="editprosesInstruktur.php" method="post">
+                  <input type="hidden" name="id_instruktur" value="<?php echo $id_instruktur; ?>">
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nama Lengkap</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="nama" class="form-control" value="<?php echo $data['nama']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" name="email" class="form-control" value="<?php echo $data['email']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nomor Handphone</label>
+                    <div class="col-sm-10">
+                      <input type="number" name="telp" class="form-control" value="<?php echo $data['telp']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Jabatan</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="jabatan" class="form-control" value="<?php echo $data['jabatan']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Diklat</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="diklat" class="form-control" value="<?php echo $data['diklat']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">No. KTP</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="no_ktp" class="form-control" value="<?php echo $data['no_ktp']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">No. NPWP</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="no_npwp" class="form-control" value="<?php echo $data['no_npwp']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Alamat</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="alamat" class="form-control" value="<?php echo $data['alamat']; ?>" required>
+                    </div>
+                  </div>
+                  <input class="btn btn btn-primary" type="submit" name="simpan" value="Simpan">
+                </form>
               </div>
             </div>
       </div>

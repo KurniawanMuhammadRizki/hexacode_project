@@ -1,3 +1,11 @@
+<?php 
+session_start();
+//berfungsi mengecek apakah user sudah login atau belum
+if($_SESSION['level']==""){
+  header("location:../login.php?alert=belum_login");
+}
+
+?>
 <!--
 
 =========================================================
@@ -52,31 +60,24 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li >
-            <a href="./dataInstruktur.html">
+          <li class="active">
+            <a href="./dataInstruktur.php">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
           </li>
           <li>
-            <a href="./dataDiklat.html">
+            <a href="./dataDiklat.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Diklat</p>
             </a>
           </li>
           <li>
-            <a href="./dataPeserta.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Data Peserta</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a href="./dataKegiatanDIklat.html">
+            <a href="./dataKegiatan.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -155,96 +156,62 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category"></h5>
-                <h4 class="card-title text-center "> Data Kegiatan Diklat</h4>
+                <h4 class="card-title text-center "> Data Instruktur dan Asisten</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-hover ">
+                  <table class="table table-hover">
                     <thead class=" text-primary">
                       <th>
-                        Name
+                        No.
                       </th>
                       <th>
-                        Country
+                        Nama
                       </th>
                       <th>
-                        City
+                        Email
                       </th>
-                      <th class="text-right">
-                        Salary
+                      <th>
+                        Nomor Handphone
+                      </th>
+                      <th>
+                        Jabatan
+                      </th>
+                      <th>
+                        Diklat
+                      </th>
+                      <th>
+                        No_ktp
+                      </th>
+                      <th>
+                        No_npwp
+                      </th>
+                      <th>
+                        alamat
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
+                      <?php
+        include('../config/config.php');
+        $query = mysqli_query($koneksi, "SELECT * FROM instruktur ORDER BY nama DESC") or die(mysqli_error($koneksi)); if (mysqli_num_rows($query) == 0) {echo '<tr><td colspan="6">Tidak ada data!</td></tr>';} 
+        else {
+          $no = 1;
+          while ($data = mysqli_fetch_assoc($query)) {
+            echo '<tr>';
+            echo '<td>' . $no . '</td>';
+            echo '<td>' . $data['nama'] . '</td>';
+            echo '<td>' . $data['email'] . '</td>';
+            echo '<td>' . $data['telp'] . '</td>';
+            echo '<td>' . $data['jabatan'] . '</td>';
+            echo '<td>' . $data['diklat'] . '</td>';
+            echo '<td>' . $data['no_ktp'] . '</td>';
+            echo '<td>' . $data['no_npwp'] . '</td>';
+            echo '<td>' . $data['alamat'] . '</td>';
+            echo '<td><a class="btn btn-warning btn-xs" href="../controller/editInstruktur.php?id_instruktur=' . $data['id_instruktur'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="../controller/hapusInstruktur.php?id_instruktur=' . $data['id_instruktur'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
+            echo '</tr>';
+            $no++;
+          }
+        }   ?>
                     </tbody>
                   </table>
                 </div>
