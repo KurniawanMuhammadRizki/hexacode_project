@@ -10,7 +10,7 @@ if (isset($_POST['kirim'])) {
     $input = mysqli_query($koneksi, "INSERT INTO kegiatan VALUES(NULL, '$nama_diklat','$kegiatan', '$tgl_diklat')") or die(mysqli_error($koneksi));
     $message = "Data telah ditambahkan.";
     echo "<script type='text/javascript'>alert('$message');</script>";
-    header('Location: ../instruktur/dataKegiatan.php');
+    header('Location: ../asisten/dataKegiatan.php');
 }
 ?>
 

@@ -30,11 +30,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+  <link href="../admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../admin/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="assets/demo/demo.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+  <link href="../admin/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -48,13 +47,13 @@
           Hexacode
         </a> -->
         <a href="#" class="simple-text logo-normal">
-          Dashboard Instruktur
+          Dashboard Asisten <br> Instruktur
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a href="./dataKegiatan.php">
+            <a href="../instruktur/dataKegiatan.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
@@ -137,49 +136,30 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category"></h5>
-                <h4 class="card-title text-center text-primary "><b> Data Kegiatan Diklat</b></h4>
+                <h4 class="card-title text-center "> Data Kegiatan Diklat</h4>
               </div>
               <div class="card-body">
-                <a class="btn btn-primary btn-xs" href="../controller/tambahKegiatan.php"><i class="mr-1 fa fa-input"></i>Tambah Data</a>
-                <div class="table-responsive">
-                  <table class="table table-hover datatab">
-                    <thead class=" text-primary">
-                      <th>
-                        No.
-                      </th>
-                      <th>
-                        Diklat
-                      </th>
-                      <th>
-                        Kegiatan
-                      </th>
-                      <th>
-                        Tanggal Diklat
-                      </th>
-                      <th>
-                        Opsi
-                      </th>
-                    </thead>
-                    <tbody>
-                      <?php
-                      include('../config/config.php');
-                      $query = mysqli_query($koneksi, "SELECT * FROM kegiatan ORDER BY diklat DESC") or die(mysqli_error($koneksi)); if (mysqli_num_rows($query) == 0) {echo '<tr><td colspan="6">Tidak ada data!</td></tr>';} 
-                      else {
-                        $no = 1;
-                        while ($data = mysqli_fetch_assoc($query)) {
-                          echo '<tr>';
-                          echo '<td>' . $no . '</td>';
-                          echo '<td>' . $data['diklat'] . '</td>';
-                          echo '<td>' . $data['kegiatan'] . '</td>';
-                          echo '<td>' . $data['tgl_diklat'] . '</td>';
-                          echo '<td><a class="btn btn-warning btn-xs" href="../controller/editKegiatan.php?id_kegiatan=' . $data['id_kegiatan'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="../controller/hapusKegiatan.php?id_kegiatan=' . $data['id_kegiatan'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
-            echo '</tr>';
-                          $no++;
-                        }
-                      }   ?>
-                    </tbody>
-                  </table>
-                </div>
+                <form action="tambahprosesKegiatanAs.php" method="post">
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nama Diklat</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="nama_diklat" class="form-control"required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Kegiatan</label>
+                    <div class="col-sm-10">
+                      <input type="textarea" name="kegiatan" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Tanggal Diklat</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="tgl_diklat" class="form-control" required>
+                    </div>
+                  </div>
+                  <input class="btn btn btn-primary" type="submit" name="kirim" value="Kirim">
+                </form>
               </div>
             </div>
       </div>
@@ -233,13 +213,6 @@
       demo.initDashboardPageCharts();
 
     });
-  </script>
-  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-  <script>
-  $(document).ready(function() {
-    $('.datatab').DataTable();
-  } );
   </script>
 </body>
 
