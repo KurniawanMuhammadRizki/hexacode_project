@@ -153,7 +153,6 @@
                 <h4 class="card-title text-center text-primary "><b>Data Kegiatan Diklat</b></h4>
               </div>
               <div class="card-body">
-                <a class="btn btn-primary btn-xs" href="../controller/editDiklat.php?id_diklat=' . $data['id_diklat'] . '"><i class="mr-1 fa fa-input"></i>Tambah Data</a>
                 <div class="table-responsive">
                   <table class="table table-hover datatab">
                     <thead class=" text-primary">

@@ -190,7 +190,10 @@
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
-                      <input type="text" name="status" class="form-control" value="<?php echo $data['status']; ?>" required>
+                      <select name="status" class="form-control" required>
+                        <option value="Pendaftaran" <?php if ($data['status'] == 'pendaftaran') { echo 'selected'; } ?>>Pendaftaran</option>
+                        <option value="Selesai" <?php if ($data['status'] == 'selesai') { echo 'selected'; } ?>>Selesai</option>
+                    </select>
                     </div>
                   </div>
                   <div class="mb-3 row">

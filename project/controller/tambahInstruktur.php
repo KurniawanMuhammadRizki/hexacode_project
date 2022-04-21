@@ -149,78 +149,62 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category"></h5>
-                <h4 class="card-title text-center "> Data Instruktur dan Asisten</h4>
+                <h4 class="card-title text-center "> Data Instruktur</h4>
               </div>
               <div class="card-body">
-                <?php
-                include('../config/config.php');
-                  $id_instruktur = $_GET['id_instruktur']; 
-                 
-                  $show = mysqli_query($koneksi, "SELECT * FROM instruktur WHERE id_instruktur='$id_instruktur'"); 
-                 
-                  if(mysqli_num_rows($show) == 0){ 
-                 
-                    echo '<script>window.history.back()</script>'; 
-                 
-                 }else{ 
-                 
-                  $data = mysqli_fetch_assoc($show); 
-                 }  
-                 ?>  
-                <form action="editprosesInstruktur.php" method="post">
-                  <input type="hidden" name="id_instruktur" value="<?php echo $id_instruktur; ?>">
+                <form action="tambahprosesInstruktur.php" method="post">
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                     <div class="col-sm-10">
-                      <input type="text" name="nama" class="form-control" value="<?php echo $data['nama']; ?>" required>
+                      <input type="text" name="nama" class="form-control"required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                      <input type="email" name="email" class="form-control" value="<?php echo $data['email']; ?>" required>
+                      <input type="email" name="email" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nomor Handphone</label>
                     <div class="col-sm-10">
-                      <input type="number" name="telp" class="form-control" value="<?php echo $data['telp']; ?>" required>
+                      <input type="number" name="telp" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Jabatan</label>
                     <div class="col-sm-10">
                       <select name="jabatan" class="form-control" required>
-                        <option value="instruktur" <?php if ($data['jabatan'] == 'instruktur') { echo 'selected'; } ?>>Instruktur</option>
-                        <option value="asisten" <?php if ($data['jabatan'] == 'asisten') { echo 'selected'; } ?>>Asisten Instruktur</option>
-                    </select>
+                        <option value="instruktur">Instruktur</option>
+                        <option value="asisten">Asisten Instruktur</option>
+                      </select>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Diklat</label>
                     <div class="col-sm-10">
-                      <input type="text" name="diklat" class="form-control" value="<?php echo $data['diklat']; ?>" required>
+                      <input type="text" name="diklat" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">No. KTP</label>
                     <div class="col-sm-10">
-                      <input type="text" name="no_ktp" class="form-control" value="<?php echo $data['no_ktp']; ?>" required>
+                      <input type="number" name="no_ktp" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">No. NPWP</label>
                     <div class="col-sm-10">
-                      <input type="text" name="no_npwp" class="form-control" value="<?php echo $data['no_npwp']; ?>" required>
+                      <input type="number" name="no_npwp" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
-                      <input type="textarea" name="alamat" class="form-control" value="<?php echo $data['alamat']; ?>" required>
+                      <input type="textarea" name="alamat" class="form-control" required>
                     </div>
                   </div>
-                  <input class="btn btn btn-primary" type="submit" name="simpan" value="Simpan">
+                  <input class="btn btn btn-primary" type="submit" name="kirim" value="Kirim">
                 </form>
               </div>
             </div>

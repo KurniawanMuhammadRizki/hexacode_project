@@ -52,13 +52,13 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li >
             <a href="../admin/dataInstruktur.php">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="../admin/dataDiklat.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Diklat</p>
@@ -70,7 +70,6 @@
               <p>Data Kegiatan Diklat</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -149,78 +148,50 @@
             <div class="card">
               <div class="card-header">
                 <h5 class="card-category"></h5>
-                <h4 class="card-title text-center "> Data Instruktur dan Asisten</h4>
+                <h4 class="card-title text-center "> Data Diklat</h4>
               </div>
               <div class="card-body">
-                <?php
-                include('../config/config.php');
-                  $id_instruktur = $_GET['id_instruktur']; 
-                 
-                  $show = mysqli_query($koneksi, "SELECT * FROM instruktur WHERE id_instruktur='$id_instruktur'"); 
-                 
-                  if(mysqli_num_rows($show) == 0){ 
-                 
-                    echo '<script>window.history.back()</script>'; 
-                 
-                 }else{ 
-                 
-                  $data = mysqli_fetch_assoc($show); 
-                 }  
-                 ?>  
-                <form action="editprosesInstruktur.php" method="post">
-                  <input type="hidden" name="id_instruktur" value="<?php echo $id_instruktur; ?>">
+                <form action="tambahprosesDiklat.php" method="post">
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Nama Lengkap</label>
+                    <label class="col-sm-2 col-form-label">Nama Diklat</label>
                     <div class="col-sm-10">
-                      <input type="text" name="nama" class="form-control" value="<?php echo $data['nama']; ?>" required>
+                      <input type="text" name="nama_diklat" class="form-control"required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Email</label>
+                    <label class="col-sm-2 col-form-label">Jumlah Peserta</label>
                     <div class="col-sm-10">
-                      <input type="email" name="email" class="form-control" value="<?php echo $data['email']; ?>" required>
+                      <input type="number" name="jum_peserta" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Nomor Handphone</label>
+                    <label class="col-sm-2 col-form-label">Angkatan</label>
                     <div class="col-sm-10">
-                      <input type="number" name="telp" class="form-control" value="<?php echo $data['telp']; ?>" required>
+                      <input type="text" name="angkatan" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Jabatan</label>
+                    <label class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
-                      <select name="jabatan" class="form-control" required>
-                        <option value="instruktur" <?php if ($data['jabatan'] == 'instruktur') { echo 'selected'; } ?>>Instruktur</option>
-                        <option value="asisten" <?php if ($data['jabatan'] == 'asisten') { echo 'selected'; } ?>>Asisten Instruktur</option>
-                    </select>
+                      <select name="status" class="form-control" required>
+                        <option value="Pendaftaran">Pendaftaran</option>
+                        <option value="Selesai">Selesai</option>
+                      </select>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Diklat</label>
+                    <label class="col-sm-2 col-form-label">Tanggal Mulai</label>
                     <div class="col-sm-10">
-                      <input type="text" name="diklat" class="form-control" value="<?php echo $data['diklat']; ?>" required>
+                      <input type="date" name="tgl_mulai" class="form-control" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">No. KTP</label>
+                    <label class="col-sm-2 col-form-label">Tanggal Selesai</label>
                     <div class="col-sm-10">
-                      <input type="text" name="no_ktp" class="form-control" value="<?php echo $data['no_ktp']; ?>" required>
+                      <input type="date" name="tgl_selesai" class="form-control" required>
                     </div>
                   </div>
-                  <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">No. NPWP</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="no_npwp" class="form-control" value="<?php echo $data['no_npwp']; ?>" required>
-                    </div>
-                  </div>
-                  <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Alamat</label>
-                    <div class="col-sm-10">
-                      <input type="textarea" name="alamat" class="form-control" value="<?php echo $data['alamat']; ?>" required>
-                    </div>
-                  </div>
-                  <input class="btn btn btn-primary" type="submit" name="simpan" value="Simpan">
+                  <input class="btn btn btn-primary" type="submit" name="kirim" value="Kirim">
                 </form>
               </div>
             </div>
