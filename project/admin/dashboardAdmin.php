@@ -54,25 +54,25 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li >
-            <a href="./datainstruktur.html">
+            <a href="./datainstruktur.php">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
           </li>
           <li>
-            <a href="./dataDiklat.html">
+            <a href="./dataDiklat.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Diklat</p>
             </a>
           </li>
           <li>
-            <a href="./dataPeserta.html">
+            <a href="./dataPeserta.php">
               <i class="now-ui-icons location_map-big"></i>
               <p>Data Peserta</p>
             </a>
           </li>
           <li>
-            <a href="./dataKegiatanDIklat.html">
+            <a href="./dataKegiatanDIklat.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
