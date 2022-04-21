@@ -138,7 +138,7 @@
                 <h5 class="card-category"></h5>
                 <h4 class="card-title text-center "> Data Kegiatan Diklat</h4>
               </div>
-              <div class="card-body">
+              
                 <form action="tambahprosesKegiatan.php" method="post">
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Diklat</label>
@@ -159,6 +159,7 @@
                     </div>
                   </div>
                   <input class="btn btn btn-primary" type="submit" name="kirim" value="Kirim">
+                </form> 
                 </form>
               </div>
             </div>

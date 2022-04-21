@@ -65,7 +65,13 @@
 						</a>
 						</div>
 					</div>
-					<div class="col-xs-10 text-right menu-1">
+					<div class="col-xs-1">
+						<div id="fh5co-logo"><a href="index.html">
+							<img width="60px" height="50px"  src="images/spek.png">
+						</a>
+						</div>
+					</div>
+					<div class="col-xs-8 text-right menu-1">
 						<ul>
 							<li class="active"><a href="index.html">Profile</a></li>
 							
