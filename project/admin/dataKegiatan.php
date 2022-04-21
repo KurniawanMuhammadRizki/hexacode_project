@@ -34,6 +34,7 @@
   <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 </head>
 
 <body class="">
@@ -153,7 +154,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-hover">
+                  <table class="table table-hover datatab">
                     <thead class=" text-primary">
                       <th>
                         No.
@@ -239,6 +240,15 @@
       demo.initDashboardPageCharts();
 
     });
+  </script>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('.datatab').DataTable();
+  } );
   </script>
 </body>
 
