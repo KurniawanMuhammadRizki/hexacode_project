@@ -154,9 +154,9 @@
               <div class="card-body">
                 <?php
                 include('../config/config.php');
-                  $id_kegiatan = $_GET['id_kegiatan']; 
+                  $id_diklat = $_GET['id_diklat']; 
                  
-                  $show = mysqli_query($koneksi, "SELECT * FROM kegiatan WHERE id_kegiatan='$id_kegiatan'"); 
+                  $show = mysqli_query($koneksi, "SELECT * FROM diklat WHERE id_diklat='$id_diklat'"); 
                  
                   if(mysqli_num_rows($show) == 0){ 
                  
@@ -167,24 +167,42 @@
                   $data = mysqli_fetch_assoc($show); 
                  }  
                  ?>  
-                <form action="editprosesKegiatan.php" method="post">
-                  <input type="hidden" name="id_kegiatan" value="<?php echo $id_kegiatan; ?>">
+                <form action="editprosesDiklat.php" method="post">
+                  <input type="hidden" name="id_diklat" value="<?php echo $id_diklat; ?>">
                   <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Nama Diklat</label>
                     <div class="col-sm-10">
-                      <input type="text" name="diklat" class="form-control" value="<?php echo $data['diklat']; ?>" required>
+                      <input type="text" name="nama_diklat" class="form-control" value="<?php echo $data['nama_diklat']; ?>" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Kegiatan</label>
+                    <label class="col-sm-2 col-form-label">Jumlah Peserta</label>
                     <div class="col-sm-10">
-                      <input type="textarea" name="kegiatan" class="form-control" value="<?php echo $data['kegiatan']; ?>" required>
+                      <input type="number" name="jum_peserta" class="form-control" value="<?php echo $data['jum_peserta']; ?>" required>
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Tanggal Diklat</label>
+                    <label class="col-sm-2 col-form-label">Angkatan</label>
                     <div class="col-sm-10">
-                      <input type="date" name="tgl_diklat" class="form-control" value="<?php echo $data['tgl_diklat']; ?>" required>
+                      <input type="number" name="angkatan" class="form-control" value="<?php echo $data['angkatan']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Status</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="status" class="form-control" value="<?php echo $data['status']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Tanggal Mulai</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="tgl_mulai" class="form-control" value="<?php echo $data['tgl_mulai']; ?>" required>
+                    </div>
+                  </div>
+                  <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Tanggal Selesai</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="tgl_selesai" class="form-control" value="<?php echo $data['tgl_selesai']; ?>" required>
                     </div>
                   </div>
                   <input class="btn btn btn-primary" type="submit" name="simpan" value="Simpan">

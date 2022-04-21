@@ -191,6 +191,10 @@
                     <label class="col-sm-2 col-form-label">Jabatan</label>
                     <div class="col-sm-10">
                       <input type="text" name="jabatan" class="form-control" value="<?php echo $data['jabatan']; ?>" required>
+                      <select name="status" class="form-control" required>
+                        <option <?php if($edit['status']=="Pendaftaran"){echo "selected";}?>>Pendaftaran</option>
+                        <option <?php if($edit['status']=="Selesai"){echo "selected";}?>>Selesai</option>
+                      </select>
                     </div>
                   </div>
                   <div class="mb-3 row">
