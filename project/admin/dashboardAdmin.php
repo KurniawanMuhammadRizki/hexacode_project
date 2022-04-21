@@ -1,3 +1,11 @@
+<?php 
+session_start();
+//berfungsi mengecek apakah user sudah login atau belum
+if($_SESSION['level']==""){
+  header("location:../login.php?alert=belum_login");
+}
+
+?>
 <!--
 
 =========================================================
@@ -47,14 +55,14 @@
         <!-- <a href="#" class="simple-text logo-mini">
           Hexacode
         </a> -->
-        <a href="#" class="simple-text logo-normal">
+        <a href="dashboardAdmin.php" class="simple-text logo-normal">
           Dashboard Admin
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li >
-            <a href="./datainstruktur.php">
+            <a href="./dataInstruktur.php">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
@@ -66,18 +74,11 @@
             </a>
           </li>
           <li>
-            <a href="./dataPeserta.php">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Data Peserta</p>
-            </a>
-          </li>
-          <li>
-            <a href="./dataKegiatanDIklat.php">
+            <a href="./dataKegiatan.php">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
           </li>
-          
         </ul>
       </div>
     </div>
@@ -122,25 +123,18 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
+                  <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Profil</a>
+                  <a class="dropdown-item" href="../controller/logout.php">Log Out</a>
                 </div>
+                
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -150,135 +144,9 @@
         <!-- <canvas id="bigDashboardChart"></canvas> -->
       </div>
       <br><br><br>
-      <div class="content">
-        <div class="row">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-category"></h5>
-                <h4 class="card-title text-center text-primary "> <b>Data Instruktur dan Asisten</b></h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-hover datatab">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-      </div>
-      <footer class="footer">
-        <div class=" container-fluid ">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright" id="copyright">
-            &copy; <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-        </div>
-      </footer>
+      <form action="" method="POST">
+            <?php echo "<h1>Selamat Datang, " . $_SESSION['username'] ."!". "</h1>"; ?>
+        </form>
     </div>
   </div>
   <!--   Core JS Files   -->

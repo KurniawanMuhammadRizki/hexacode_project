@@ -76,7 +76,7 @@
                                         </form>
                                     </div>
                                     <div class="sign-up-form">
-                                        <form action="controller/loginProses.php" method="post">
+                                        <form action="controller/loginProses2.php" method="post">
                                         <div class="group"> <label for="user" class="label">Username</label> <input id="user" type="text" name="username" class="input" placeholder="Enter your username"> </div>
                                         <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" type="password" name="password" class="input" data-type="password" placeholder="Enter your password"> </div>
                                         <!-- <div class="group"> <label for="level" class="label">Role</label>
