@@ -1,3 +1,11 @@
+<?php 
+session_start();
+//berfungsi mengecek apakah user sudah login atau belum
+if($_SESSION['level']==""){
+  header("location:../login.php?alert=belum_login");
+}
+
+?>
 <!--
 
 =========================================================

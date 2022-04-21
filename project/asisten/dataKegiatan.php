@@ -1,3 +1,11 @@
+<?php 
+session_start();
+//berfungsi mengecek apakah user sudah login atau belum
+if($_SESSION['level']==""){
+  header("location:../login.php?alert=belum_login");
+}
+
+?>
 <!--
 
 =========================================================
@@ -110,7 +118,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">Profil</a>
-                  <a class="dropdown-item" href="#">Log Out</a>
+                  <a class="dropdown-item" href="../controller/logout.php">Log Out</a>
                 </div>
               </li>
             </ul>
