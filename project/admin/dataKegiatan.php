@@ -131,7 +131,11 @@ if($_SESSION['level']==""){
                     <span class="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </a>
+<<<<<<< HEAD
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+=======
+                <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
+>>>>>>> 92ca8105d31369c440d5978be8b9bdba8062822f
                   <a class="dropdown-item" href="#">Profil</a>
                   <a class="dropdown-item" href="../controller/logout.php">Log Out</a>
                 </div>
