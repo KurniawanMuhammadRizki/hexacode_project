@@ -55,26 +55,26 @@ if($_SESSION['level']==""){
         <!-- <a href="#" class="simple-text logo-mini">
           Hexacode
         </a> -->
-        <a href="dashboardAdmin.php" class="simple-text logo-normal">
+        <a href="dashboardAdmin" class="simple-text logo-normal">
           Dashboard Admin
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li >
-            <a href="./dataInstruktur.php">
+            <a href="./dataInstruktur">
               <i class="now-ui-icons design_app"></i>
               <p>Data Instruktur / Asisten </p>
             </a>
           </li>
           <li class="active ">
-            <a href="./dataDiklat.php">
+            <a href="./dataDiklat">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Diklat</p>
             </a>
           </li>
           <li>
-            <a href="./dataKegiatan.php">
+            <a href="./dataKegiatan">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
@@ -130,11 +130,7 @@ if($_SESSION['level']==""){
                     <span class="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </a>
-<<<<<<< HEAD
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-=======
                 <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
->>>>>>> 92ca8105d31369c440d5978be8b9bdba8062822f
                   <a class="dropdown-item" href="#">Profil</a>
                   <a class="dropdown-item" href="../controller/logout.php">Log Out</a>
                 </div>

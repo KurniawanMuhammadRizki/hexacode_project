@@ -46,20 +46,20 @@
         <!-- <a href="#" class="simple-text logo-mini">
           Hexacode
         </a> -->
-        <a href="dasboardAsisten.html" class="simple-text logo-normal">
+        <a href="dasboardAsisten" class="simple-text logo-normal">
           Dashboard Asisten
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li >
-            <a href="dataPesertaa.html">
+            <a href="dataPesertaa">
               <i class="now-ui-icons design_app"></i>
               <p>Data Peserta</p>
             </a>
           </li>
           <li>
-            <a href="dataKegiatanDiklatt.html">
+            <a href="dataKegiatanDiklatt">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Kegiatan Diklat</p>
             </a>

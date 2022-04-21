@@ -62,7 +62,7 @@ if($_SESSION['level']==""){
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active">
-            <a href="./dataKegiatan.php">
+            <a href="./dataKegiatan">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
