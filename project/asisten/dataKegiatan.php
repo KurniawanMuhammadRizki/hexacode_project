@@ -46,20 +46,14 @@
         <!-- <a href="#" class="simple-text logo-mini">
           Hexacode
         </a> -->
-        <a href="dasboardAsisten.html" class="simple-text logo-normal">
-          Dashboard Aisten
+        <a href="#" class="simple-text logo-normal">
+          Dashboard Asisten <br>Instruktur
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li >
-            <a href="dataPesertaa.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Data Peserta</p>
-            </a>
-          </li>
           <li class="active">
-            <a href="dataKegiatanDiklatt.html">
+            <a href="./dataKegiatan.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Data Kegiatan Diklat</p>
             </a>
@@ -149,89 +143,38 @@
                   <table class="table table-hover">
                     <thead class=" text-primary">
                       <th>
-                        Name
+                        No.
                       </th>
                       <th>
-                        Country
+                        Diklat
                       </th>
                       <th>
-                        City
+                        Kegiatan
                       </th>
-                      <th class="text-right">
-                        Salary
+                      <th>
+                        Tanggal Diklat
+                      </th>
+                      <th>
+                        Opsi
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
+                      <?php
+                      include('../config/config.php');
+                      $query = mysqli_query($koneksi, "SELECT * FROM kegiatan ORDER BY diklat DESC") or die(mysqli_error($koneksi)); if (mysqli_num_rows($query) == 0) {echo '<tr><td colspan="6">Tidak ada data!</td></tr>';} 
+                      else {
+                        $no = 1;
+                        while ($data = mysqli_fetch_assoc($query)) {
+                          echo '<tr>';
+                          echo '<td>' . $no . '</td>';
+                          echo '<td>' . $data['diklat'] . '</td>';
+                          echo '<td>' . $data['kegiatan'] . '</td>';
+                          echo '<td>' . $data['tgl_diklat'] . '</td>';
+                          echo '<td><a class="btn btn-warning btn-xs" href="../controller/editKegiatanAs.php?id_kegiatan=' . $data['id_kegiatan'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="../controller/hapusKegiatan.php?id_kegiatan=' . $data['id_kegiatan'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
+            echo '</tr>';
+                          $no++;
+                        }
+                      }   ?>
                     </tbody>
                   </table>
                 </div>
