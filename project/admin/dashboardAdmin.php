@@ -128,9 +128,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Profil</a>
+                  <a class="dropdown-item" href="../controller/logout.php">Log Out</a>
                 </div>
               </li>
               <li class="nav-item">
