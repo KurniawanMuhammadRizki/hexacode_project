@@ -3,6 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="images/hexa.png">
 	<title>Hexacode</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="Hexacode" />
@@ -73,7 +74,7 @@
 					</div>
 					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li class="active"><a href="index.html">Profile</a></li>
+							<li ><a href="index.html">Profile</a></li>
 							
 							<li class="has-dropdown">
 								<a href="#fh5co-project">Services</a>
