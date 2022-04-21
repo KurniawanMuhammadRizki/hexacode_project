@@ -140,7 +140,7 @@
                 <h4 class="card-title text-center text-primary" > <b>Data Kegiatan Diklat</b></h4>
               </div>
               <div class="card-body">
-                <a class="btn btn-primary btn-xs" href="../controller/editDiklat.php?id_diklat=' . $data['id_diklat'] . '"><i class="mr-1 fa fa-input"></i>Tambah Data</a>
+                <a class="btn btn-primary btn-xs" href="../controller/tambahKegiatanAs.php"><i class="mr-1 fa fa-input"></i>Tambah Data</a>
                 <div class="table-responsive">
                   <table class="table table-hover datatab">
                     <thead class=" text-primary">
@@ -172,7 +172,7 @@
                           echo '<td>' . $data['diklat'] . '</td>';
                           echo '<td>' . $data['kegiatan'] . '</td>';
                           echo '<td>' . $data['tgl_diklat'] . '</td>';
-                          echo '<td><a class="btn btn-warning btn-xs" href="../controller/editKegiatanAs.php?id_kegiatan=' . $data['id_kegiatan'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="../controller/hapusKegiatan.php?id_kegiatan=' . $data['id_kegiatan'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
+                          echo '<td><a class="btn btn-warning btn-xs" href="../controller/editKegiatanAs.php?id_kegiatan=' . $data['id_kegiatan'] . '"><i class="mr-1 fa fa-edit"></i>Edit</a> / <a class="btn btn-danger btn-xs" href="../controller/hapusKegiatanAs.php?id_kegiatan=' . $data['id_kegiatan'] . '" onclick="return confirm(\'Yakin?\')"><i class="mr-1 fa fa-trash"></i>Hapus</a></td>';
             echo '</tr>';
                           $no++;
                         }
