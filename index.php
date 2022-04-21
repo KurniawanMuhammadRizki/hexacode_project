@@ -3,6 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="images/hexa.png">
 	<title>Hexacode</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="Hexacode" />
@@ -60,15 +61,20 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="index.html">
-							<img width="150px" height="50px"  src="images/logofull (2).png">
-							<img width="150px" height="50px"  src="images/logofull(1).png">
+						<div id="fh5co-logo"><a href="index.php">
+							<img width="150px" height="50px"  src="images/Logo.png">
 						</a>
 						</div>
 					</div>
-					<div class="col-xs-10 text-right menu-1">
+					<div class="col-xs-1">
+						<div id="fh5co-logo"><a href="index.php">
+							<img width="60px" height="50px"  src="images/spek.png">
+						</a>
+						</div>
+					</div>
+					<div class="col-xs-8 text-right menu-1">
 						<ul>
-							<li class="active"><a href="index.html">Profile</a></li>
+							<li ><a href="index.php">Profile</a></li>
 							
 							<li class="has-dropdown">
 								<a href="#fh5co-project">Services</a>
