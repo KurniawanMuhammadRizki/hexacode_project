@@ -131,7 +131,20 @@
       </div>
       <br><br><br>
       <div class="content">
+      <?php
 
+
+    include('../config/config.php');
+
+    $nama_diklat  = $_GET['nama_diklat'];
+    
+
+    $sql = mysqli_query($koneksi,"SELECT diklat.id_diklat, diklat.nama_diklat, diklat.tgl_mulai, from diklat left join ") or die(mysqli_error($koneksi));
+    $message = "Data telah ditambahkan.";
+    echo "<script type='text/javascript'>alert('$message');</script>";
+    header('Location: ../instruktur/dataKegiatan.php');
+
+?>
         <div class="row">
             <div class="card">
               <div class="card-header">
